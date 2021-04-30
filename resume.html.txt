@@ -1,0 +1,7 @@
+<html>
+<body>
+<h1> WELCOME</h1>
+<link rel="stylesheet" href="/css/site.css">
+<script src="js/site.js">
+</body>
+</html>
