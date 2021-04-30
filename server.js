@@ -1,9 +1,9 @@
 const express = require('express');
  
 const app = express();
-app.use(express.static(__dirname+"/frontend");
-app.get("/home",function(req,res){
-let indexs=__dirname+"/resume.html";
+app.use(express.static(__dirname+"/frontend"));
+app.get("/resume",function(req,res){
+let indexs=__dirname+"/frontend/html/resume.html";
 res.sendFile(indexs);
 });
  
