@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
  
 app.get("/",function(req,res){
-let indexs=__dirname+"/login.html";
+let indexs=__dirname+"/resume.html";
 res.sendFile(indexs);
 });
  
