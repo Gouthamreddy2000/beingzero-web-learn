@@ -10,7 +10,7 @@ app.get("/search",function(req,res){
 let indexs=__dirname+"/frontend/html/search.html";
 res.sendFile(indexs);
 });
-app.get("/",function(req,res){
+app.get("",function(req,res){
 let indexs=__dirname+"/frontend/html/basic.html";
 res.sendFile(indexs);
 });
