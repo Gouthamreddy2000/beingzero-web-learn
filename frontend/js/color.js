@@ -1,3 +1,4 @@
+
 function func1(val){
 document.getElementById("two").innerHTML=val;
 document.getElementById("color").style.backgroundColor="rgba(val,150,300,0.5)";
