@@ -1,0 +1,7 @@
+<html>
+<head>
+</head>
+<body>
+<div style="top:100px;bottom:500px;width:400px;height:500px;background-color:white;right:500px;position:absolute;border:solid;">
+</body>
+</html>
