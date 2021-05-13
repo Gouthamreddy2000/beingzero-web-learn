@@ -1,7 +1,7 @@
 const express = require('express');
  
 const app = express();
-var arr={"name":"goutham"}
+var arr=[{"name":"goutham","email":"mandlagouthamreddy@gmail.com"}]
 app.use(express.static(__dirname+"/frontend"));
 app.get("/resume",function(req,res){
 let indexs=__dirname+"/frontend/html/resume.html";
@@ -23,9 +23,12 @@ app.get("/todo",function(req,res){
 let indexs=__dirname+"/frontend/html/todo.html";
 res.sendFile(indexs);
 });
+app.get("/api/users", function(req, res){
+   res.render('form');
+});
 app.post("/api/users",function(req,res){
-var username=req.body;
-res.json({arr});
+var user=req.body;
+res.json({user});
 });
 app.get("/color",function(req,res){
 let indexs=__dirname+"/frontend/html/color.html";
