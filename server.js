@@ -1,7 +1,19 @@
 const express = require('express');
- 
+ const bodyParser= require('body-parser');
 const app = express();
-var arr=[{"name":"goutham","email":"mandlagouthamreddy@gmail.com"}]
+const crypto = require("crypto");
+let request=0;
+const todo=[
+
+];
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(function(req,res,next){
+console.log("req came");
+request++;
+next();
+});
+var arr=[{"name":"goutham","email":"mandlagouthamreddy@gmail.com","userid":1}]
 app.use(express.static(__dirname+"/frontend"));
 app.get("/resume",function(req,res){
 let indexs=__dirname+"/frontend/html/resume.html";
@@ -23,12 +35,20 @@ app.get("/todo",function(req,res){
 let indexs=__dirname+"/frontend/html/todo.html";
 res.sendFile(indexs);
 });
-app.get("/api/users", function(req, res){
-   res.render('form');
-});
 app.post("/api/users",function(req,res){
-var user=req.body;
-res.json({user});
+const course={
+id:todo.length+1,
+name:req.body
+};
+todo.push(course);
+res.json(todo);
+});
+app.delete("/api/users/:id",function(req,res){
+const to=todo.find(c=>c.id===parseInt(req.params.id));
+var user=req.params.userid;
+const index=todo.indexOf(to);
+todo.splice(index,1);
+res.send(todo);
 });
 app.get("/color",function(req,res){
 let indexs=__dirname+"/frontend/html/color.html";
