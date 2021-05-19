@@ -1,0 +1,6 @@
+const mongoose=require('mongoose');
+var cschema=new mongoose.Schema({
+    course:String,
+    articles:Number,
+    })
+module.exports=mongoose.model('user',cschema);

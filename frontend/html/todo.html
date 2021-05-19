@@ -24,6 +24,22 @@ font-size:25px;
     background: rgba(0, 0, 0, 0.003);background-color:white;
 }
 </style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function disp(){
+          $.get("/api/todo", function(data, status){
+            var d=data
+          console.log(status)
+          console.log(d)
+          //$('#show').replaceAll('<div id="show"></div>');
+          document.getElementById("show").innerHTML=""
+          for(var i=0;i<d.task.length;++i){
+           //$('#show').append("<p>" + d.task[i] + "</p>");
+           document.getElementById("show").innerHTML+="<div id='box'><p id='data2'>"+d.task[i]+ "</p><span id='btns'><button class='btn' onclick='done("+i+")'>Done</button>"+" "+"<button class='btn' onclick='del("+i+")'>Delete</button></span> </div><br>"
+          }
+        });
+        }
+</script>
 </head>
 <body style="background:#f5f5f5">
 <center><h1 class="text">todos</h1><center><br><br><br><br><br><br><br>
