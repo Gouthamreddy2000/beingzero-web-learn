@@ -6,7 +6,7 @@ const tableSchema = new schema({
         type : String,
         required : true
     },
-    Articels : {
+    Articles : {
         type : String,
         required : true
     }
