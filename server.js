@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 var mongoose = require('mongoose');
 //var password=process.env.Mongo_atlas_password;
-var connectionString = "mongodb+srv://Goutham:Jyothi@123@cluster0.zv3at.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var connectionString = "mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('connected', function () {
     console.log("database connected");
