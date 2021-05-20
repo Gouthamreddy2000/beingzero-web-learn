@@ -1,16 +1,16 @@
 const express = require('express');
 //const courseLib =require('./backend/lib/courselib.js');
 const courselib = require('./backend/lib/courselib');
+const config = require('./backend/config/config');
+const dbConnectLib = require('./backend/lib/dbConnectLib');
 //const table = require('./table')
 const bodyParser = require('body-parser');
 const app = express();
 var mongoose = require('mongoose');
 //var password=process.env.Mongo_atlas_password;
-var connectionString = "mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/course?retryWrites=true&w=majority";
-mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connection.on('connected', function () {
-    console.log("database connected");
-});
+var connectionString = config.mongoConnectionString;
+dbConnectLib.connect();
+
 const crypto = require("crypto");
 let request = 0;
 const todo = [
@@ -74,6 +74,6 @@ app.get("/piechart", function (req, res) {
 const PORT = process.env.PORT || 3000;
 
 // Start the server
-app.listen(PORT, function () {
+app.listen(config.webPort, function () {
     console.log("Server Starting running on http://localhost:" + PORT);
 })
