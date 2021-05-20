@@ -40,7 +40,7 @@ $('#create-test').on('click', function () {
                console.log(data);
             },
             error: function (xhr, status, error) {
-            alert(error);
+            //alert(error);
             }
             });
         addRow(newTest)
@@ -64,7 +64,7 @@ function view()
         }
         },
         error: function (xhr, status, error) {
-        alert(error);
+        //alert(error);
         }
         });
       
@@ -126,7 +126,7 @@ function saveUpdate() {
     data = JSON.parse(data);
     },
     error: function (xhr, status, error) {
-    alert(error);
+    //alert(error);
     }
     });
    
@@ -184,7 +184,7 @@ function confirmDeletion() {
         data = JSON.parse(data);
         },
         error: function (xhr, status, error) {
-        alert(error);
+        //alert(error);
         }
         });
     var row = $(`.test-row-${testid}`)
