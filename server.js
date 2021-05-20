@@ -44,11 +44,11 @@ app.get("/todo", function (req, res) {
     let indexs = __dirname + "/frontend/html/todo.html";
     res.sendFile(indexs);
 });
-app.get("/crudd", function (req, res) {
+app.get("/crudm", function (req, res) {
     let indexs = __dirname + "/frontend/html/crud.html";
     res.sendFile(indexs);
 });
-app.get("/crudd", courselib.getall);
+app.get("/crudm", courselib.getall);
 app.delete("/crud/:idd", courselib.deleteone);
 app.put("/crud/:idd", courselib.update);
 app.post("/crud",courselib.addnewone);
