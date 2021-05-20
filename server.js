@@ -1,11 +1,12 @@
 const express = require('express');
 //const courseLib =require('./backend/lib/courselib.js');
-const table = require('./table')
+const courselib = require('./backend/lib/courselib');
+//const table = require('./table')
 const bodyParser = require('body-parser');
 const app = express();
 var mongoose = require('mongoose');
 //var password=process.env.Mongo_atlas_password;
-var connectionString = "mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+var connectionString = "mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/course?retryWrites=true&w=majority";
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('connected', function () {
     console.log("database connected");
@@ -43,10 +44,14 @@ app.get("/todo", function (req, res) {
     let indexs = __dirname + "/frontend/html/todo.html";
     res.sendFile(indexs);
 });
-app.get("/crud", function (req, res) {
+app.get("/crudd", function (req, res) {
     let indexs = __dirname + "/frontend/html/crud.html";
     res.sendFile(indexs);
 });
+app.get("/crudd", courselib.getall);
+app.delete("/crud/:idd", courselib.deleteone);
+app.put("/crud/:idd", courselib.update);
+app.post("/crud",courselib.addnewone);
 //app.get('/api/courses', courseLib.getallcourses);
 app.get("/color", function (req, res) {
     let indexs = __dirname + "/frontend/html/color.html";
@@ -71,53 +76,4 @@ const PORT = process.env.PORT || 3000;
 // Start the server
 app.listen(PORT, function () {
     console.log("Server Starting running on http://localhost:" + PORT);
-})
- a={
-    "task":[]
-   };
-app.get('/crud/get', function(req, res){
-    table.find()
-    .then((result) =>{
-        res.send(result);
-        console.log(result);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-})
-
-app.post('/crud/post', function(req, res){
-    var newUser= req.body;
-    const newTable = new table({
-        name : newUser.name,
-        Articels : newUser.Articels
-    })
-    console.log(newTable);
-    newTable.save();
- })
-
- app.delete('/crud/del/:id', function(req, res){
-    var i=req.params.id
-    table.findByIdAndDelete(i, (err)=>{
-        if(err){
-            console.log('Error:'+err);
-        }
-        else{
-            console.log('Success');
-        }
-    })
-})
-
-app.put('/crud/put/:id', function(req, res){
-    var i=req.params.id
-    table.findById(i, function (err,Obj) {
-        if(err){
-            console.log('Error:' + err);
-        }
-        else{
-            table.findByIdAndUpdate(i, {Articels: value}, function(){})
-        };
-    });
-
-    
 })

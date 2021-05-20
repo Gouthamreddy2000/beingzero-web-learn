@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static(__dirname + "/frontend"));
 
 var password = process.env.Mongo_password;
-var connectionString = 'mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/tableSchema?retryWrites=true&w=majority'
+var connectionString = 'mongodb+srv://Goutham:goutham123@cluster0.zv3at.mongodb.net/crud.?retryWrites=true&w=majority'
 
 
 mongoose.connect(connectionString, { useNewUrlParser: true,useUnifiedTopology: true});
