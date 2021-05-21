@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tambola.css">
+    <title>Tambola</title>
+</head>
+
+<body>
+    <h1 style="position: relative; text-align: center; ">Tambola Game</h1>
+    <div class="container">
+        <div class="center">
+                <p id = 'game'>Start</p>
+              <button onclick="start()">Generate Number</button>
+        </div>
+      </div>
+    <div  > 
+        <table id="table">
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+            <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> 
+        </table>
+        <script>
+            var x = [];
+            let i = 0;
+            function start(i) {    
+            var myvar = setTimeout(function(){
+                var p = document.getElementById('game');
+                var r  = Math.floor(Math.random()*100);
+                if(x.indexOf(r)===-1) {
+                x.push(r);
+                var s = r.toString();
+                if(s.length===1){
+                    var tab = document.getElementById("table").rows[parseInt(s[0])].cells;
+                    tab[0].innerHTML = s[0];
+                    p.innerHTML = s[0];
+                }
+                else{
+                var tab = document.getElementById("table").rows[parseInt(s[1])].cells;
+                tab[parseInt(s[0])].innerHTML = s;
+                p.innerHTML = s;
+                }
+            }
+            if (i===99){
+                clearTimeout(myvar);
+                return ;
+            }
+            start(i+1);
+        }, 500)
+        }
+        </script>
+    </div>
+</body>
+</html>

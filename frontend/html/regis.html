@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="username">username</label>
+    <input type="text" name="username" id="username"><br>
+    <label for="password">password</label>
+    <input type="text" name="password" id="password"><br>
+    <label for="role">role</label>
+    <input type="text" name="role" id="role"><br>
+    <input onclick="save()" type="button" value="Submit">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    function save(){
+    var userObject={};
+    userObject.username=$("#username").val();
+    userObject.password=$("#password").val();
+    userObject.role=$("#role").val();
+    $.ajax({
+        url: "/api/users",
+        type: "POST",
+        data: userObject,
+        success: function(data) {
+       for(var i=0;i<data.length;i++) {
+           console.log(data[i]);
+          addRow(data[i]);
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+      
+    /*$.post("/api/users",userObject)
+        .done(function(data){
+            console.log(data);
+        });*/
+}
+</script>
+</body>
+</html>

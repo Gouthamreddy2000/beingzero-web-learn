@@ -2,6 +2,7 @@ const express = require('express');
 //const courseLib =require('./backend/lib/courselib.js');
 const courselib = require('./backend/lib/courselib');
 const config = require('./backend/config/config');
+const regis=require('./backend/lib/regisLib');
 const dbConnectLib = require('./backend/lib/dbConnectLib');
 //const table = require('./table')
 const bodyParser = require('body-parser');
@@ -61,6 +62,10 @@ app.get("/login", function (req, res) {
     let indexs = __dirname + "/frontend/html/login.html";
     res.sendFile(indexs);
 });
+app.get("/tambola", function (req, res) {
+    let indexs = __dirname + "/frontend/html/tambola.html";
+    res.sendFile(indexs);
+});
 app.get("/register", function (req, res) {
     let indexs = __dirname + "/frontend/html/registration.html";
     res.sendFile(indexs);
@@ -69,7 +74,12 @@ app.get("/piechart", function (req, res) {
     let indexs = __dirname + "/frontend/html/piechart.html";
     res.sendFile(indexs);
 });
-
+app.get("/regis", function (req, res) {
+    let indexs = __dirname + "/frontend/html/regis.html";
+    res.sendFile(indexs);
+});
+app.get("/regis",regis.getall);
+app.post("/api/users",regis.addnewone);
 // Heroku will automatically set an environment variable called PORT
 const PORT = process.env.PORT || 3000;
 

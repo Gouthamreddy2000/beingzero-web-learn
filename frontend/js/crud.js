@@ -56,7 +56,7 @@ function view()
    
     $.ajax({
         url: "/crud",
-        type: "GET",
+        type: "POST",
         success: function(data) {
        for(var i=0;i<data.length;i++) {
            console.log(data[i]);
