@@ -3,25 +3,49 @@
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <body style="background-color:skyblue;">
-<script>
-function click()
-{
-alert("username or password is blank");
-}
-</script>
 <div style="background-color:;">
 <center><h1>LOGIN PAGE</h1></center>
 <div style="top:100px;bottom:500px;width:400px;height:500px;background-color:white;right:500px;position:absolute;border:solid;">
 <p><i style="font-size: 5em;" class="fa fa-sign-in" aria-hidden="true"></i></p>
-<form id="action">
-<b><label style="font-size:25px;" id="user">username</label></b>
-<input id="user1" type="text" placeholder="email or phone number" size=30 width=30><br><br>
-<b><label style="font-size:25px;" id="pass">password</label></b>
-<input id="pass1" type="text"><br><br>
-<center><button onclick="click()" style="font-size:20px;color:blue;padding: 10px 50px; margin: 4px 2px;">login</button></center><br></form>
+<b><label style="font-size:25px;" for="username">username</label></b>
+<input name="username" id="username" type="text" placeholder="email or phone number" size=30 width=30><br><br>
+<b><label style="font-size:25px;" for="password">password</label></b>
+<input name="password" id="password" type="text"><br><br>
+<a href="/html/color.html" target="_blank"><center><button onclick="save()" style="font-size:20px;color:blue;padding: 10px 50px; margin: 4px 2px;">login</button></center></a><br></form>
 <center><a href="">forgotten password?</a></center><br>
-<center><a href="/html/registration.html" target="_blank">Register</a></center>
+<center><a href="/html/registration.html" target="_blank">Register</a></center></div>
 </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    function save(){
+    var userObject={};
+    userObject.username=$("#username").val();
+    userObject.password=$("#password").val();
+    //userObject.role=$("#role").val();
+    $.ajax({
+        url: "/api/users",
+        type: "POST",
+        data: userObject,
+        success: function(data) {
+       for(var i=0;i<data.length;i++) {
+           console.log(data[i]);
+          addRow(data[i]);
+        }
+        },
+        error: function (xhr, status, error) {
+        //alert(error);
+        }
+        });
+        $.ajax({
+        url: "/home",
+        type: "GET",
+        });
+    /*$.post("/api/users",userObject)
+        .done(function(data){
+            console.log(data);
+        });*/
+}
+</script>
 </body>
 </html>   

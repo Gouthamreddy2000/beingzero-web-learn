@@ -13,12 +13,7 @@ const regis = new mongoose.Schema({
     trim: true,
     
   },
-  role: {
-    type: String,
-    required: true,
-    trim: true,
-    
-  },
+  
 });
 
 const regisModel = mongoose.model("regis", regis);

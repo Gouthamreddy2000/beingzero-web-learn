@@ -22,7 +22,7 @@
     userObject.password=$("#password").val();
     userObject.role=$("#role").val();
     $.ajax({
-        url: "/api/users",
+        url: "/api/regis",
         type: "POST",
         data: userObject,
         success: function(data) {

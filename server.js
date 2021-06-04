@@ -1,8 +1,11 @@
 const express = require('express');
+const cookieParser=require('cookie-parser');
+const expressSession=require('express-session');
 //const courseLib =require('./backend/lib/courselib.js');
 const courselib = require('./backend/lib/courselib');
 const config = require('./backend/config/config');
 const regis=require('./backend/lib/regisLib');
+const registration=require('./backend/lib/registrationLib');
 const dbConnectLib = require('./backend/lib/dbConnectLib');
 //const table = require('./table')
 const bodyParser = require('body-parser');
@@ -19,6 +22,12 @@ const todo = [
 ];
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+app.use(expressSession({
+    resave: false,
+    saveUninitialized: false,
+    secret: config.sessionSecret,
+}));
 app.use(function (req, res, next) {
     console.log("req came");
     request++;
@@ -78,8 +87,13 @@ app.get("/regis", function (req, res) {
     let indexs = __dirname + "/frontend/html/regis.html";
     res.sendFile(indexs);
 });
-app.get("/regis",regis.getall);
+app.get("/login1",regis.getall);
+app.get("/home",function(req,res){
+    let indexs = __dirname + "/frontend/html/color.html";
+    res.sendFile(indexs);
+})
 app.post("/api/users",regis.addnewone);
+app.post("/api/regis",registration.addnewone);
 // Heroku will automatically set an environment variable called PORT
 const PORT = process.env.PORT || 3000;
 
