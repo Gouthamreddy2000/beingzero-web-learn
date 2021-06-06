@@ -18,11 +18,12 @@ module.exports.addnewone = function(req,res)
         if(err)
         console.log("ERROR: "+err);
         else
-        console.log("SAVE SUCCESS "+ JSON.stringify(obj));
+        console.log("SAV SUCCESS "+ JSON.stringify(obj));
         })   
 }
 module.exports.deleteone = function(req,res)
 {
+   // console.log(req);
     var id =req.params.idd;
     var idd;
     var obj = courseModel.find({id: id},function(err,obj){
@@ -42,6 +43,7 @@ module.exports.deleteone = function(req,res)
 
 module.exports.update = function(req,res)
 {
+   // console.log(req);
     var id =req.params.idd;
     var idd;
     var obj = courseModel.find({id: id},function(err,obj){

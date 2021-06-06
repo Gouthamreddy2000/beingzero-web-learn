@@ -40,9 +40,10 @@ $('#create-test').on('click', function () {
                console.log(data);
             },
             error: function (xhr, status, error) {
-            //alert(error);
+            alert(error);
             }
             });
+        // console.log(data);
         addRow(newTest)
         $('#test-name').val('')
         $('#test-result').val('')
@@ -56,15 +57,17 @@ function view()
    
     $.ajax({
         url: "/crud",
-        type: "POST",
+        type: "GET",
         success: function(data) {
+      //  alert(data.Articels);
+      // alert(data);
        for(var i=0;i<data.length;i++) {
            console.log(data[i]);
           addRow(data[i]);
         }
         },
         error: function (xhr, status, error) {
-        //alert(error);
+        alert(error);
         }
         });
       
@@ -126,7 +129,7 @@ function saveUpdate() {
     data = JSON.parse(data);
     },
     error: function (xhr, status, error) {
-    //alert(error);
+    alert(error);
     }
     });
    
@@ -184,7 +187,7 @@ function confirmDeletion() {
         data = JSON.parse(data);
         },
         error: function (xhr, status, error) {
-        //alert(error);
+        alert(error);
         }
         });
     var row = $(`.test-row-${testid}`)
