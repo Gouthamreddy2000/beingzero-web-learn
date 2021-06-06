@@ -1,5 +1,4 @@
 var registrationModel = require('../model/registrationModel');
-
 module.exports.getall = function(req,res)
 {
 var query = {};

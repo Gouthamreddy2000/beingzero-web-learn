@@ -1,5 +1,4 @@
 var regisModel = require('../model/regisModel');
-
 module.exports.getall = function(req,res)
 {
 var query = {};

@@ -24,7 +24,7 @@
     userObject.password=$("#password").val();
     //userObject.role=$("#role").val();
     $.ajax({
-        url: "/api/users",
+        url: "/users",
         type: "POST",
         data: userObject,
         success: function(data) {
@@ -37,10 +37,10 @@
         //alert(error);
         }
         });
-        $.ajax({
+        /*$.ajax({
         url: "/home",
         type: "GET",
-        });
+        });*/
     /*$.post("/api/users",userObject)
         .done(function(data){
             console.log(data);
