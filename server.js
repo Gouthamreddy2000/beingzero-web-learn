@@ -93,7 +93,7 @@ app.get("/home",function(req,res){
     let indexs = __dirname + "/frontend/html/color.html";
     res.sendFile(indexs);
 })
-app.post("/users",regisl.addnewone);
+app.post("/api/users",regisl.addnewone);
 app.post("/api/regis",registration.addnewone);
 // Heroku will automatically set an environment variable called PORT
 const PORT = process.env.PORT || 3000;
