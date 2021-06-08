@@ -7,11 +7,12 @@
 <center><h1>LOGIN PAGE</h1></center>
 <div style="top:100px;bottom:500px;width:400px;height:500px;background-color:white;right:500px;position:absolute;border:solid;">
 <p><i style="font-size: 5em;" class="fa fa-sign-in" aria-hidden="true"></i></p>
+<form action="/users" method="POST">
 <b><label style="font-size:25px;" for="username">username</label></b>
 <input name="username" id="username" type="text" placeholder="email or phone number" size=30 width=30><br><br>
 <b><label style="font-size:25px;" for="password">password</label></b>
-<input name="password" id="password" type="text"><br><br>
-<a href="/html/color.html" target="_blank"><center><button onclick="save()" style="font-size:20px;color:blue;padding: 10px 50px; margin: 4px 2px;">login</button></center></a><br></form>
+<input name="password" id="password" type="password"><br><br>
+<center><button style="font-size:20px;color:blue;padding: 10px 50px; margin: 4px 2px;">login</button></center><br></form>
 <center><a href="">forgotten password?</a></center><br>
 <center><a href="/html/registration.html" target="_blank">Register</a><div class="g-signin2" data-onsuccess="onSignIn"></div></center></div>
 </div>
@@ -53,10 +54,10 @@
         type: "POST",
         data: userObject,
         success: function(data) {
-       for(var i=0;i<data.length;i++) {
+       /*for(var i=0;i<data.length;i++) {
            console.log(data[i]);
           addRow(data[i]);
-        }
+        }*/
         },
         error: function (xhr, status, error) {
         //alert(error);

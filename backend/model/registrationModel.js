@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const registration = new mongoose.Schema({
-  first: {
+  username: {
     type: String,
     required: true,
     trim: true,
     lowercase: true,
   },
-  last: {
+  password: {
     type: String,
     required: true,
     trim: true,

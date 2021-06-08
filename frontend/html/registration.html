@@ -10,9 +10,9 @@
         <center>
             <h1>REGISTRATION FORM</h1>
         </center>
-        <b><label style="padding-left:10px;font-size:20px;" for="first">First name</label></b><b><label
-                style="padding-left:10px;font-size:20px;padding-left:200px;" for="last">Last name</label></b><br>
-        <pre> <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:10px;" type="text" name="first" id="first"/>     <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:5px;" type="text" name="last" id="last"/></pre>
+        <b><label style="padding-left:10px;font-size:20px;" for="username">username</label></b><b><label
+                style="padding-left:10px;font-size:20px;padding-left:200px;" for="password">password</label></b><br>
+        <pre> <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:10px;" type="text" name="username" id="username"/>     <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:5px;" type="password" name="password" id="password"/></pre>
         <b><label style="padding-left:10px;font-size:20px;" for="date">Birthday</label></b><b><label
                 style="padding-left:10px;font-size:20px;padding-left:200px;" for="gender">Gender</label></b><br>
         <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="date" name="date" id="date"/>     <input type="radio" name="gender" value="male" id="male"><b><label style="font-size:20px;" for="male">Male</label></b>  <input type="radio" name="gender" value="female" id="female"><b><label style="font-size:20px;" for="female">Female</label><b>  <input type="radio" name="gender" value="other" id="other"><b><label style="font-size:20px; "for="other">Other</label></b><br><br></pre>
@@ -27,8 +27,8 @@
 <script>
     function save(){
     var userObject={};
-    userObject.first=$("#first").val();
-    userObject.last=$("#last").val();
+    userObject.username=$("#username").val();
+    userObject.password=$("#password").val();
     userObject.birthday=$("#date").val();
     if(document.getElementById('male').checked) {
         userObject.gender=$("#male").val();
@@ -42,14 +42,14 @@ else if(document.getElementById('other').checked) {
     userObject.email=$("#email").val();
     userObject.phonenumber=$("#phonenumber").val();
     $.ajax({
-        url: "/api/regis",
+        url: "/regis",
         type: "POST",
         data: userObject,
         success: function(data) {
-       for(var i=0;i<data.length;i++) {
+       /*for(var i=0;i<data.length;i++) {
            console.log(data[i]);
           addRow(data[i]);
-        }
+        }*/
         },
         error: function (xhr, status, error) {
         //alert(error);
