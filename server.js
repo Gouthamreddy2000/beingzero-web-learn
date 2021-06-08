@@ -12,7 +12,7 @@ const apiRouter = require('./backend/routes/apiRoutes');
 const webRouter = require('./backend/routes/webRoutes');
 const bodyParser = require('body-parser');
 const app = express();
-const CLIENT_ID= '445093466494-nvc1apm19ll15tk1l6ishctch71bnnpt.apps.googleusercontent.com';
+const CLIENT_ID= '445093466494-u1c7jg8178j553gv6o6ao8uohia3cja6.apps.googleusercontent.com';
 const {OAuth2Client} = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
 var mongoose = require('mongoose');
@@ -69,9 +69,9 @@ app.post("/api/regis",registration.addnewone);
     let user=req.user;
     res.render('dashboard',{user});
 })*/
-app.get('/basic',checkAuthenticated,function(req,res){
+app.get('/dashboard',checkAuthenticated,function(req,res){
     let user=req.user;
-    res.render('basic',{user});
+    res.render('dashboard',{user});
 })
 // Heroku will automatically set an environment variable called PORT
 const PORT = process.env.PORT || 3000;
