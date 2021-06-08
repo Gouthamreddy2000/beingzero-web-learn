@@ -1,7 +1,6 @@
 var newId = 4
 var newTest = { 'name': null, 'id': newId, 'articles': null }
-
-view();
+//view();
 $('#add-test').on('click', function () {
     $('.form-wrapper').removeClass('hidden')
 
@@ -9,19 +8,18 @@ $('#add-test').on('click', function () {
 
 $('#test-result').on('keyup', function () {
     newTest.articles = $(this).val()
-    console.log(newTest)
+    //console.log(newTest)
 
 })
 $('#test-id').on('keyup', function () {
     newTest.id = $(this).val()
-    console.log(newTest)
+    //console.log(newTest)
 
 })
 $('#test-name').on('change', function () {
     newTest.name = $(this).val()
-    console.log(newTest)
+    //console.log(newTest)
 })
-
 $('#create-test').on('click', function () {
     if (newTest.name == null) {
         alert('No test selected!')
@@ -51,7 +49,6 @@ $('#create-test').on('click', function () {
        
     }
 })
-
 function view()
 {
    
@@ -62,7 +59,7 @@ function view()
       //  alert(data.Articels);
       // alert(data);
        for(var i=0;i<data.length;i++) {
-           console.log(data[i]);
+           //console.log(data[i]);
           addRow(data[i]);
         }
         },
@@ -83,10 +80,8 @@ function addRow(obj) {
                    <td>
                      <button class="del btn btn-sm btn-danger" data-testid=${obj.id} id="${obj.id}">Delete</button>
                      <button class="btn btn-sm btn-info" disabled data-testid="${obj.id}"  id="save-${obj.id}">Save</button>
-
                      <button class="btn btn-sm btn-danger hidden" data-testid="${obj.id}"  id="cancel-${obj.id}">Cancel</button>
                      <button class="btn btn-sm btn-primary hidden" data-testid="${obj.id}"  id="confirm-${obj.id}">Confirm</button>
-
                    </td>
                </tr>`
     $('#tests-table').append(row)
@@ -110,7 +105,7 @@ function editResult() {
         var testid = $(this).data('testid')
         var saveBtn = $(`#save-${testid}`)
         saveBtn.prop('disabled', false)
-        data = { articles: JSON.parse($(".result").val())};
+        data = { articles: JSON.parse($('.result').val())};
         console.log($(".result").val());
     })
 }

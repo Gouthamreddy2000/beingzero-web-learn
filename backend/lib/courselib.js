@@ -44,7 +44,7 @@ module.exports.deleteone = function(req,res)
 module.exports.update = function(req,res)
 {
    // console.log(req);
-    var id =req.params.idd;
+    var id =req.params.id;
     var idd;
     var obj = courseModel.find({id: id},function(err,obj){
     
