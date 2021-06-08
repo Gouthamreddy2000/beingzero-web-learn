@@ -1,7 +1,6 @@
 const express = require('express');
 const cookieParser=require('cookie-parser');
 const expressSession=require('express-session');
-const alert = require('alert');
 //const courseLib =require('./backend/lib/courselib.js');
 const courselib = require('./backend/lib/courselib');
 const config = require('./backend/config/config');
@@ -78,7 +77,7 @@ app.post("/users",function(req,res){
                 res.redirect("/basic")
             }
             else{
-                alert("invalid username or password");
+                
                 res.redirect('/login')
             }
         }
