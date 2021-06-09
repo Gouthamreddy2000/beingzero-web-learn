@@ -21,11 +21,13 @@
         <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="email" id="email"/>     <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="phonenumber" id="phonenumber"/></pre>
         <center><button onclick="save()" style="font-size:20px;background-color:rgba(146,67,125);padding: 10px 50px; margin: 4px 2px;"
                 type="button">REGISTER</button>
+                <h1 id="one"></h1>
     </div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
     function save(){
+        $('#one').html("Registration Successful");
     var userObject={};
     userObject.username=$("#username").val();
     userObject.password=$("#password").val();
