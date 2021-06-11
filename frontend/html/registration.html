@@ -4,7 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="background-color:lightblue;">
+<body style="background-image: url('/dev.png');background-repeat: no-repeat;background-attachment: fixed;
+background-size: cover;">
     <div
         style="top:60px;bottom:500px;width:600px;height:550px;background-color:white;right:400px;position:absolute;border:solid;">
         <center>
@@ -12,20 +13,22 @@
         </center>
         <b><label style="padding-left:10px;font-size:20px;" for="username">username</label></b><b><label
                 style="padding-left:10px;font-size:20px;padding-left:200px;" for="password">password</label></b><br>
-        <pre> <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:10px;" type="text" name="username" id="username"/>     <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:5px;" type="password" name="password" id="password"/></pre>
+        <pre> <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:10px;" type="text" name="username" id="username" required>     <input style="width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;border-radius:5px;" type="password" name="password" id="password"required></pre>
         <b><label style="padding-left:10px;font-size:20px;" for="date">Birthday</label></b><b><label
                 style="padding-left:10px;font-size:20px;padding-left:200px;" for="gender">Gender</label></b><br>
-        <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="date" name="date" id="date"/>     <input type="radio" name="gender" value="male" id="male"><b><label style="font-size:20px;" for="male">Male</label></b>  <input type="radio" name="gender" value="female" id="female"><b><label style="font-size:20px;" for="female">Female</label><b>  <input type="radio" name="gender" value="other" id="other"><b><label style="font-size:20px; "for="other">Other</label></b><br><br></pre>
+        <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="date" name="date" id="date"required>     <input type="radio" name="gender" value="male" id="male" required><b><label style="font-size:20px;" for="male">Male</label></b>  <input type="radio" name="gender" value="female" id="female" required><b><label style="font-size:20px;" for="female">Female</label><b>  <input type="radio" name="gender" value="other" id="other" required><b><label style="font-size:20px; "for="other">Other</label></b><br><br></pre>
         <b><label style="padding-left:10px;font-size:20px;" for="email">Email</label></b><b><label
                 style="padding-left:10px;font-size:20px;padding-left:200px;" for="phonenumber">Phone Number</label></b><br>
-        <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="email" id="email"/>     <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="phonenumber" id="phonenumber"/></pre>
+        <pre> <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="email" id="email" required>     <input style="border-radius:5px;width: 40%;padding: 12px 20px;margin: 8px 0;border:dotted dashed solid double;;" type="text" name="phonenumber" id="phonenumber" required></pre>
         <center><button onclick="save()" style="font-size:20px;background-color:rgba(146,67,125);padding: 10px 50px; margin: 4px 2px;"
                 type="button">REGISTER</button>
+                <h1 id="one"></h1>
     </div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
     function save(){
+        $('#one').html("Registration Successful");
     var userObject={};
     userObject.username=$("#username").val();
     userObject.password=$("#password").val();

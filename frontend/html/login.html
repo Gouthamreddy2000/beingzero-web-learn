@@ -9,9 +9,9 @@
 <p><i style="font-size: 5em;" class="fa fa-sign-in" aria-hidden="true"></i></p>
 <form action="/users" method="POST">
 <b><label style="font-size:25px;" for="username">username</label></b>
-<input name="username" id="username" type="text" placeholder="email or phone number" size=30 width=30><br><br>
+<input name="username" id="username" type="text" placeholder="username" size=30 width=30 autocomplete="username"><br><br>
 <b><label style="font-size:25px;" for="password">password</label></b>
-<input name="password" id="password" type="password"><br><br>
+<input name="password" id="password" type="password" autocomplete="current-password"><br><br>
 <center><button style="font-size:20px;color:blue;padding: 10px 50px; margin: 4px 2px;">login</button></center><br></form>
 <center><a href="">forgotten password?</a></center><br>
 <center><a href="/html/registration.html" target="_blank">Register</a><div class="g-signin2" data-onsuccess="onSignIn"></div></center></div>

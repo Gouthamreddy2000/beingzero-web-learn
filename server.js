@@ -78,8 +78,7 @@ app.post("/users",function(req,res){
                 res.redirect("/basic")
             }
             else{
-                alert("invalid username or password");
-                res.redirect('/login')
+                res.redirect('/login');
             }
         }
     })
